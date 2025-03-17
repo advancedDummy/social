@@ -4,8 +4,6 @@ Prosty serwis społecznościowy z możliwością logowania, rejestracji i odzysk
 ## Funkcjonalności
 - Logowanie i rejestracja użytkowników
 - Resetowanie hasła
-- Responsywny design
-- Nawigacja i panele użytkownika
 
 ## Struktura projektu
     📁 social/
@@ -69,5 +67,4 @@ Prosty serwis społecznościowy z możliwością logowania, rejestracji i odzysk
 Stworzony przez [AdvancedDummy](https://github.com/advancedDummy) © 2025.
 
 ## Licencja
-- Nie zezwalam na **sprzedaż** ani **monetyzację** tego projektu.
-- Udostępnianie do użytku publicznego jest dozwolone **wyłącznie z podaniem mojego autorstwa**.
+Ten projekt jest objęty licencją Custom MIT Non-Commercial License. Można go używać, modyfikować i udostępniać, ale nie wolno wykorzystywać go komercyjnie. Pełna treść licencji znajduje się w pliku LICENSE.txt.

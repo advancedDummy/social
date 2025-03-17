@@ -1,0 +1,13 @@
+Custom MIT Non-Commercial License
+
+Copyright (c) 2025 advancedDummy
+
+Niniejszym udziela się każdej osobie, która otrzyma kopię tego oprogramowania i powiązanej dokumentacji (dalej „Oprogramowanie”), bezpłatnego pozwolenia na używanie, kopiowanie, modyfikowanie, łączenie, publikowanie, dystrybuowanie oraz udzielanie sublicencji i/lub sprzedaż kopii Oprogramowania, z zastrzeżeniem następujących warunków:
+
+1. Powyższa informacja o prawach autorskich oraz niniejsza zgoda muszą być zawarte we wszystkich kopiach lub istotnych częściach Oprogramowania.  
+2. Oprogramowanie nie może być używane do celów komercyjnych, w tym, ale nie ograniczając się do: sprzedaży, włączania do produktów komercyjnych, świadczenia usług z wykorzystaniem Oprogramowania, zarabiania na nim pośrednio lub bezpośrednio.  
+3. Oprogramowanie dostarczane jest „TAKIE, JAKIE JEST”, bez jakiejkolwiek gwarancji, wyraźnej lub dorozumianej, w tym, ale nie ograniczając się do gwarancji przydatności handlowej, przydatności do określonego celu oraz nienaruszalności praw. W żadnym wypadku autorzy ani posiadacze praw autorskich nie odpowiadają za żadne roszczenia, szkody ani inne zobowiązania, czy to na drodze kontraktu, czynu niedozwolonego czy innej podstawy prawnej, wynikające z Oprogramowania lub jego użytkowania, ani w związku z nim.
+
+Dodatkowe warunki:  
+- W przypadku niejasności co do komercyjnego charakteru danego użycia, konieczne jest uzyskanie zgody autora.  
+- Jeśli chcesz wykorzystać Oprogramowanie w celach komercyjnych, skontaktuj się z autorem w celu uzyskania odrębnej licencji.
