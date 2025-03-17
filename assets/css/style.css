@@ -1,0 +1,117 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.accessBg {
+    background-color: rgb(76, 132, 252);
+}
+
+.accessPanel {
+    font-family: "Nunito", sans-serif;
+    color: rgb(9, 34, 52);
+    background-image: linear-gradient(to top right, rgba(137, 130, 130, 0.666), rgb(255, 255, 255));
+    border-radius: 25px;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    -webkit-box-shadow: -18px 16px 21px -4px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -18px 16px 21px -4px rgba(66, 68, 90, 1);
+    box-shadow: -18px 16px 21px -4px rgba(66, 68, 90, 1);
+}
+
+#userImg {
+    max-width: 20%;
+}
+
+.accessPanel h1 {
+    font-size: 4em;
+}
+
+.accessPanel form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accessPanel input {
+    width: 45%;
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    border: 0;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: -1px 1px 3px 0px rgba(66, 68, 90, 1);
+    margin: 10px 0;
+}
+
+.accessPanel button[type="submit"] {
+    width: 45%;
+    background-color: rgb(4, 176, 250);
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 1.75em;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    padding: 12px 24px;
+    margin: 30px;
+    border: none;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    box-shadow: -1px 1px 3px 0px rgba(66, 68, 90, 1), 
+        inset -4px 4px 4px 0px rgba(255, 255, 255, 0.2);
+}
+
+.accessPanel button[type="submit"]:active {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    transform: translateY(2px);
+}
+
+.accessPanel button[type="submit"]:hover {
+    text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.accessPanel a {
+    text-decoration: none;
+    color: rgb(9, 34, 52);
+    transition: all 0.2s ease-in-out;
+}
+
+.accessPanel a:hover {
+    text-shadow: 1px 1px 7px rgb(94, 93, 93, 0.5);
+}
+
+#resetLink {
+    font-size: 2em;
+}
