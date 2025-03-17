@@ -1,43 +1,12 @@
-html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-body {
-    margin: 0;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-input:focus {
-    outline: none;
-}
-
 .accessBg {
-    background-color: rgb(76, 132, 252);
-    display: flex; 
+    display: flex;
     align-items: flex-start;
     justify-content: center;
     position: relative;
+    background-color: rgb(76, 132, 252);
 }
 
 .accessPanel {
-    font-family: "Nunito", sans-serif;
-    color: rgb(9, 34, 52);
-    background-image: linear-gradient(to top right, rgba(137, 130, 130, 0.666), rgb(255, 255, 255));
-    border-radius: 25px;
     height: 100vh;
     max-width: 50%;
     flex: 1;
@@ -47,18 +16,22 @@ input:focus {
     align-items: center;
     margin: auto;
     padding: 1.66vh 0;
+    color: rgb(9, 34, 52);
+    background: linear-gradient(to top right, rgba(137, 130, 130, 0.666), rgb(255, 255, 255));
+    border-radius: 25px;
     -webkit-box-shadow: -18px 16px 21px -4px rgba(66, 68, 90, 1);
     -moz-box-shadow: -18px 16px 21px -4px rgba(66, 68, 90, 1);
     box-shadow: -18px 16px 21px -4px rgba(66, 68, 90, 1);
 }
 
-#userImg {
-    max-width: 20%;
+#icon {
+    max-width: min(10vw, 20vh);
     margin: 2vh 0;
 }
 
 .accessPanel h1 {
     font-size: 3vw;
+    margin: 2.5vh;
 }
 
 .accessPanel form {
@@ -69,54 +42,41 @@ input:focus {
 }
 
 .accessPanel input {
-    font-family: "Nunito", sans-serif !important;
     width: 45%;
     font-size: 1.75vw;
     border: 0;
-    border-radius: 2vw;
+    border-radius: min(3vw, 30px);
     padding: 15px;
     box-shadow: -1px 1px 3px 0px rgba(66, 68, 90, 1);
     margin: 1.66vh 0;
 }
 
-.accessPanel button[type="submit"] {
+.submit-access {
     width: 45%;
+    position: relative;
+    padding: 12px 24px;
+    margin: 5vh;
     background-color: rgb(4, 176, 250);
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     font-size: 2.25vw;
-    font-family: "Nunito", sans-serif;
     font-weight: bold;
-    padding: 12px 24px;
-    margin: 5vh;
     border: none;
     border-radius: 3vw;
-    position: relative;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-
     box-shadow: -1px 1px 3px 0px rgba(66, 68, 90, 1), 
         inset -4px 4px 4px 0px rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease-in-out;
 }
 
-.accessPanel button[type="submit"]:active {
+.submit-access:active {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 
                 inset 0 2px 4px rgba(255, 255, 255, 0.3);
     transform: translateY(2px);
 }
 
-.accessPanel button[type="submit"]:hover {
+.submit-access:hover {
     text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.5);
-}
-
-.accessPanel a {
-    text-decoration: none;
-    color: rgb(9, 34, 52);
-    transition: all 0.2s ease-in-out;
-}
-
-.accessPanel a:hover {
-    text-shadow: 1px 1px 7px rgb(94, 93, 93, 0.5);
 }
 
 #resetLink {
@@ -124,17 +84,26 @@ input:focus {
     margin: 3vh 0;
 }
 
-.accessBg > nav {
+#resetLink a {
+    color: rgb(9, 34, 52);
+    transition: all 0.2s ease-in-out;
+}
+
+#resetLink a:hover {
+    text-shadow: 1px 1px 7px rgb(94, 93, 93, 0.5);
+}
+
+.switch {
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.accessBg > nav img {
+.switch img {
     max-width: 8vw;
     transition: all 0.2s ease-in-out;
 }
 
-.accessBg > nav img:hover {
+.switch img:hover {
     max-width: 8.5vw;
 }

@@ -17,6 +17,7 @@ Prosty serwis społecznościowy z możliwością logowania, rejestracji i odzysk
     ├── index.html          # Strona główna
     ├── login.html          # Strona logowania
     ├── register.html       # Strona rejestracji
+    ├── LICENSE.txt         # Pełna treść licencji
     ├── README.md           # Dokumentacja projektu
 
 ## Technologie

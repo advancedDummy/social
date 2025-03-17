@@ -1,0 +1,15 @@
+input:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* NIE DZIAŁA
+input:-webkit-autofill {
+    font-family: "Nunito", sans-serif !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+}
+*/
