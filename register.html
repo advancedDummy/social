@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/pages/access.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class="accessBg">
@@ -19,7 +20,7 @@
             <h1>
                 Rejestracja
             </h1>
-            <form>
+            <form method="POST">
                 <label for="nick" class="sr-only">Nickname</label>
                 <input type="text" id="nick" name="nick" placeholder="Nickname" class="nunito" required>
                 <label for="email" class="sr-only">Email</label>
@@ -28,6 +29,7 @@
                 <input type="password" id="pass" name="pass" placeholder="Hasło" class="nunito" required>
                 <label for="passConfirm" class="sr-only">Powtórz hasło</label>
                 <input type="password" id="passConfirm" name="pass" placeholder="Powtórz hasło" class="nunito password-hidden" required>
+                <div class="g-recaptcha" data-sitekey="6LeQtfgqAAAAAPe_D8jzbyZ_FQvB9R-_b-A8B53B"></div>
                 <button type="submit" class="nunito submit-access">Zarejestruj się</button>
             </form>
             <p class="bottomLink">

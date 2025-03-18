@@ -6,10 +6,11 @@ a {
     text-decoration: none;
 }
 
-/* NIE DZIAŁA
-input:-webkit-autofill {
-    font-family: "Nunito", sans-serif !important;
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-    box-shadow: 0 0 0px 1000px white inset !important;
+button, input[type="submit"] {
+    -webkit-tap-highlight-color: transparent; /* Usuwa niebieskie podświetlenie na Androidzie/iOS */
+    outline: none;
 }
-*/
+
+input:-webkit-autofill {
+    font-family: "Nunito", sans-serif !important; /* Ustawia domyślną czcionkę przy autouzupełnianiu na Nunito */
+}
