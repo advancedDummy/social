@@ -42,7 +42,7 @@
 }
 
 .accessPanel input {
-    width: 45%;
+    width: 55%;
     font-size: 1.75vw;
     border: 0;
     border-radius: min(3vw, 30px);
@@ -52,7 +52,7 @@
 }
 
 .submit-access {
-    width: 45%;
+    width: 55%;
     position: relative;
     padding: 12px 24px;
     margin: 5vh;
@@ -106,4 +106,44 @@
 
 .switch img:hover {
     max-width: 8.5vw;
+}
+
+@media only screen and (max-width: 768px) {
+    .accessPanel {
+        max-width: 100%;
+        border-radius: 0;
+    }
+    .accessPanel h1 {
+        font-size: 5vw;
+    }
+    .switch img {
+        max-width: 12vw;
+    }
+    .switch img:hover {
+        max-width: 13vw;
+    }
+    #icon {
+        max-width: min(30vw, 20vh);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .accessPanel h1 {
+        font-size: 13vw;
+    }
+    .accessPanel input {
+        width: 75%;
+        font-size: 4vw;
+        border-radius: 7vw;
+    }
+    .submit-access {
+        width: 75%;
+        font-size: 4.25vw;
+        border-radius: 10vw;
+        margin: 1.66vh 0;
+    }
+    #resetLink {
+        font-size: 4vw;
+        margin: 4vh 0;
+    }
 }
