@@ -79,17 +79,17 @@
     text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
-#resetLink {
+.bottomLink {
     font-size: 2vw;
     margin: 3vh 0;
 }
 
-#resetLink a {
+.bottomLink a {
     color: rgb(9, 34, 52);
     transition: all 0.2s ease-in-out;
 }
 
-#resetLink a:hover {
+.bottomLink a:hover {
     text-shadow: 1px 1px 7px rgb(94, 93, 93, 0.5);
 }
 
@@ -129,7 +129,8 @@
 
 @media only screen and (max-width: 600px) {
     .accessPanel h1 {
-        font-size: 13vw;
+        font-size: 11vw;
+        margin: 1vh
     }
     .accessPanel input {
         width: 75%;
@@ -142,7 +143,7 @@
         border-radius: 10vw;
         margin: 1.66vh 0;
     }
-    #resetLink {
+    .bottomLink {
         font-size: 4vw;
         margin: 4vh 0;
     }

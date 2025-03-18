@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/pages/access.css">
+</head>
+<body>
+    <div class="accessBg">
+        <main class="accessPanel">
+            <h1>
+                Rejestracja
+            </h1>
+            <form>
+                <label for="nick" class="sr-only">Nickname</label>
+                <input type="text" id="nick" name="nick" placeholder="Nickname" class="nunito" required>
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" name="email" placeholder="E-mail" class="nunito" required>
+                <label for="pass" class="sr-only">Hasło</label>
+                <input type="password" id="pass" name="pass" placeholder="Hasło" class="nunito" required>
+                <label for="passConfirm" class="sr-only">Powtórz hasło</label>
+                <input type="password" id="passConfirm" name="pass" placeholder="Powtórz hasło" class="nunito password-hidden" required>
+                <button type="submit" class="nunito submit-access">Zarejestruj się</button>
+            </form>
+            <p class="bottomLink">
+                <a href="index.html">Masz już konto? Zaloguj się</a>
+            </p>
+        </main>
+        <nav class="switch">
+            <a href="index.html" class="circular-link">
+                <img src="assets/images/user_login.png" alt="Login user">
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const passInput = document.getElementById("pass");
+            const passConfirmInput = document.getElementById("passConfirm");
+    
+            function validatePassword(password) {
+                return password.length >= 8 && /[A-Z]/.test(password) && /\d/.test(password);
+            }
+    
+            passInput.addEventListener("input", function () {
+                if (validatePassword(passInput.value)) {
+                    passConfirmInput.classList.add("password-visible");
+                    passConfirmInput.classList.remove("password-hidden");
+                } else {
+                    passConfirmInput.classList.add("password-hidden");
+                    passConfirmInput.classList.remove("password-visible");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

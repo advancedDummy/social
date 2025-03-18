@@ -14,4 +14,19 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
+}
+
+.circular-link {
+    display: inline-block;
+    clip-path: circle(50% at 55% 40%);
+}
+
+.password-hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.password-visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
