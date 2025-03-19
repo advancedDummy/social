@@ -23,14 +23,23 @@
             <form method="POST">
                 <label for="nick" class="sr-only">Nickname</label>
                 <input type="text" id="nick" name="nick" placeholder="Nickname" class="nunito" required>
+                <p class="error-message hidden" id="nick-error">Nick musi zawierać 3-18 znaków alfanumerycznych.</p>
                 <label for="email" class="sr-only">Email</label>
                 <input type="email" id="email" name="email" placeholder="E-mail" class="nunito" required>
+                <p class="error-message hidden" id="email-error">Podaj poprawny adres e-mail.</p>
                 <label for="pass" class="sr-only">Hasło</label>
                 <input type="password" id="pass" name="pass" placeholder="Hasło" class="nunito" required>
+                <p class="error-message hidden" id="pass-error">Hasło musi zawierać co najmniej 8 znaków.</p>
+                <div class="password-strength hidden">
+                    <div class="strength-bar">
+                        <div class="strength-fill"></div>
+                    </div>
+                </div>
                 <label for="passConfirm" class="sr-only">Powtórz hasło</label>
-                <input type="password" id="passConfirm" name="pass" placeholder="Powtórz hasło" class="nunito password-hidden" required>
-                <div class="g-recaptcha" data-sitekey="6LeQtfgqAAAAAPe_D8jzbyZ_FQvB9R-_b-A8B53B"></div>
-                <button type="submit" class="nunito submit-access">Zarejestruj się</button>
+                <input type="password" id="passConfirm" name="passConfirm" placeholder="Powtórz hasło" class="nunito password-hidden" required>
+                <p class="error-message hidden" id="passConfirm-error">Podane hasła różnią się.</p>
+                <!--<div class="g-recaptcha" data-sitekey="6LeQtfgqAAAAAPe_D8jzbyZ_FQvB9R-_b-A8B53B"></div>-->
+                <button type="submit" class="nunito submit-access" id="register-btn">Zarejestruj się</button>
             </form>
             <p class="bottomLink">
                 <a href="index.html">Masz już konto? Zaloguj się</a>
@@ -43,25 +52,220 @@
         </nav>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const passInput = document.getElementById("pass");
-            const passConfirmInput = document.getElementById("passConfirm");
-    
-            function validatePassword(password) {
-                return password.length >= 8 && /[A-Z]/.test(password) && /\d/.test(password);
-            }
-    
-            passInput.addEventListener("input", function () {
-                if (validatePassword(passInput.value)) {
-                    passConfirmInput.classList.add("password-visible");
-                    passConfirmInput.classList.remove("password-hidden");
-                } else {
-                    passConfirmInput.classList.add("password-hidden");
-                    passConfirmInput.classList.remove("password-visible");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const passInput = document.getElementById("pass");
+        const passConfirmInput = document.getElementById("passConfirm");
+        const passConfirmError = document.getElementById("passConfirm-error");
+
+        passInput.addEventListener("input", function () {
+            if (passInput.value.length >= 8) {
+                passConfirmInput.classList.add("password-visible");
+                passConfirmInput.classList.remove("password-hidden");
+                if (passInput.value != passConfirmInput.value && passConfirmInput.value != "") {
+                    passConfirmError.classList.add("show");
+                    setTimeout(() => {
+                        passConfirmError.classList.remove("hidden");
+                    }, 10); 
+                } else if (passInput.value === passConfirmInput.value) {
+                    passConfirmError.classList.remove("show");
+                    setTimeout(() => {
+                        passConfirmError.classList.add("hidden");
+                    }, 300);
                 }
-            });
+            } else {
+                passConfirmInput.classList.add("password-hidden");
+                passConfirmInput.classList.remove("password-visible");
+                passConfirmError.classList.remove("show");
+                setTimeout(() => {
+                    passConfirmError.classList.add("hidden");
+                }, 300);
+            }
         });
-    </script>
+    });
+
+    let nickTimeout;
+
+    document.getElementById("nick").addEventListener("input", function() {
+        clearTimeout(nickTimeout);
+
+        nickTimeout = setTimeout(() => {
+            const nickInput = this.value;
+            const errorMsg = document.getElementById("nick-error");
+            const submitButton = document.getElementById("register-btn");
+    
+            const isValid = /^[a-zA-Z0-9]{3,18}$/.test(nickInput);
+    
+            if (nickInput === "") {
+                errorMsg.classList.remove("show");
+                setTimeout(() => {
+                    errorMsg.classList.add("hidden");
+                }, 300);
+                submitButton.disabled = false;
+            } else if (!isValid) {
+                errorMsg.classList.add("show");
+                setTimeout(() => {
+                    errorMsg.classList.remove("hidden");
+                }, 10); 
+                submitButton.disabled = true;
+            } else {
+                errorMsg.classList.remove("show");
+                setTimeout(() => {
+                    errorMsg.classList.add("hidden");
+                }, 300);
+                submitButton.disabled = false;
+            }
+        }, 500);
+    });
+
+    let emailTimeout;
+
+    document.getElementById("email").addEventListener("input", function() {
+        clearTimeout(emailTimeout);
+
+        emailTimeout = setTimeout(() => {
+            const emailInput = this.value;
+            const errorMsg = document.getElementById("email-error");
+            const submitButton = document.getElementById("register-btn");
+
+            const emailPattern = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const isValid = emailPattern.test(emailInput);
+
+            if (emailInput === "") {
+                errorMsg.classList.remove("show");
+                setTimeout(() => {
+                    errorMsg.classList.add("hidden");
+                }, 300);
+                submitButton.disabled = false;
+            } else if (!isValid) {
+                errorMsg.classList.add("show");
+                setTimeout(() => {
+                    errorMsg.classList.remove("hidden");
+                }, 10); 
+                submitButton.disabled = true;
+            } else {
+                errorMsg.classList.remove("show");
+                setTimeout(() => {
+                    errorMsg.classList.add("hidden");
+                }, 300);
+                submitButton.disabled = false;
+            }
+        }, 500);
+    });
+
+let passwordTimeout;
+
+document.getElementById("pass").addEventListener("input", function() {
+    clearTimeout(passwordTimeout);
+
+    passwordTimeout = setTimeout(() => {
+        const password = this.value;
+        const errorMsg = document.getElementById("pass-error");
+        const strengthBar = document.querySelector(".password-strength");
+        const strengthFill = document.querySelector(".strength-fill");
+        const submitButton = document.getElementById("register-btn");
+
+        if (password === "") {
+            strengthBar.classList.remove("show");
+            setTimeout(() => {
+                strengthBar.classList.add("hidden");
+            }, 300);
+            strengthBar.style.display = "none";
+            errorMsg.style.display = "block";
+            strengthFill.style.width = "0";
+            errorMsg.classList.remove("show");
+            setTimeout(() => {
+                errorMsg.classList.add("hidden");
+            }, 300);
+            submitButton.disabled = true;
+            return;
+        }
+
+        if (password.length < 8) {
+            strengthBar.classList.remove("show");
+            setTimeout(() => {
+                strengthBar.classList.add("hidden");
+                strengthBar.style.display = "none";
+            }, 300);
+            strengthFill.style.width = "0";
+            setTimeout(() => {
+                errorMsg.style.display = "block";
+                setTimeout(() => {
+                    errorMsg.classList.remove("hidden");
+                    errorMsg.classList.add("show");
+                }, 10); 
+            }, 300);
+            submitButton.disabled = true;
+        } else {
+            errorMsg.classList.remove("show");
+            setTimeout(() => {
+                errorMsg.classList.add("hidden");
+                errorMsg.style.display = "none";
+            }, 300);
+            setTimeout(() => {
+                strengthBar.style.display = "block";
+                setTimeout(() => {
+                    strengthBar.classList.remove("hidden");
+                    strengthBar.classList.add("show");
+                }, 10); 
+            }, 300);
+            submitButton.disabled = false;
+
+            let strength = checkPasswordStrength(password);
+
+            if (strength === "weak") {
+                strengthFill.style.width = "33%";
+                strengthFill.className = "strength-fill weak";
+            } else if (strength === "medium") {
+                strengthFill.style.width = "66%";
+                strengthFill.className = "strength-fill medium";
+            } else {
+                strengthFill.style.width = "100%";
+                strengthFill.className = "strength-fill strong";
+            }
+        }
+    }, 500);
+});
+
+function checkPasswordStrength(password) {
+    let strength = 0;
+    if (password.length >= 8) strength++;
+    if (/[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password)) strength++;
+    if (password.length >= 12 && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password) && /[^A-Za-z0-9]/.test(password)) strength++;
+
+    if (strength <= 1) return "weak";
+    if (strength === 2) return "medium";
+    return "strong";
+}
+
+let confirmPassTimeout;
+
+document.getElementById("passConfirm").addEventListener("input", function() {
+    clearTimeout(confirmPassTimeout);
+
+    confirmPassTimeout = setTimeout(() => {
+        const passConfirmInput = this.value;
+        const password = document.getElementById("pass").value;
+        const errorMsg = document.getElementById("passConfirm-error");
+        const submitButton = document.getElementById("register-btn");
+
+        const isValid = (password === passConfirmInput);
+
+        if (this.classList.contains("password-visible") && !isValid) {
+            errorMsg.classList.add("show");
+            setTimeout(() => {
+                errorMsg.classList.remove("hidden");
+            }, 10); 
+            submitButton.disabled = false;
+        } else {
+            errorMsg.classList.remove("show");
+            setTimeout(() => {
+                errorMsg.classList.add("hidden");
+            }, 300);
+        }
+    }, 500);
+});
+
+</script>
 </body>
 </html>

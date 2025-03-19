@@ -48,14 +48,13 @@
     border-radius: min(3vw, 30px);
     padding: 15px;
     box-shadow: -1px 1px 3px 0px rgba(66, 68, 90, 1);
-    margin: 1.66vh 0;
 }
 
 .submit-access {
     width: 55%;
     position: relative;
     padding: 12px 24px;
-    margin: 5vh;
+    margin: 2.66vh 0 5vh;
     background-color: rgb(4, 176, 250);
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -108,6 +107,16 @@
     max-width: 8.5vw;
 }
 
+.password-strength {
+    width: 45% !important;
+    height: 2.66vh !important;
+    margin: 0.12vh 0 0.54vh !important;
+}
+
+.strength-bar {
+    height: 0.5em !important;
+}
+
 @media only screen and (max-width: 768px) {
     .accessPanel {
         max-width: 100%;
@@ -141,10 +150,13 @@
         width: 75%;
         font-size: 4.25vw;
         border-radius: 10vw;
-        margin: 1.66vh 0;
+        margin: 1vh 0;
     }
     .bottomLink {
         font-size: 4vw;
         margin: 4vh 0;
+    }
+    .password-strength {
+        width: 65% !important;
     }
 }

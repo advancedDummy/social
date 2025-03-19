@@ -24,9 +24,56 @@
 .password-hidden {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
 }
 
 .password-visible {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
+}
+
+.error-message {
+    height: 2.66vh;
+    margin: 0.12vh 0 0.54vh;
+    font-size: 0.7em;
+    color: red;
+}
+
+.password-strength {
+    display: none;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.weak { background-color: red; }
+.medium { background-color: orange; }
+.strong { background-color: green; }
+
+.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.show {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: auto;
 }
