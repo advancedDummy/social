@@ -53,6 +53,22 @@
     </div>
 
 <script>
+    function hide(e) {
+        e.classList.remove("show");
+        setTimeout(() => {
+            e.classList.add("hidden");
+        }, 300);
+    }
+
+    function show(e) {
+        e.classList.add("show");
+        setTimeout(() => {
+            e.classList.remove("hidden");
+        }, 10); 
+    }
+
+    const submitButton = document.getElementById("register-btn");
+
     document.addEventListener("DOMContentLoaded", function () {
         const passInput = document.getElementById("pass");
         const passConfirmInput = document.getElementById("passConfirm");
@@ -63,23 +79,14 @@
                 passConfirmInput.classList.add("password-visible");
                 passConfirmInput.classList.remove("password-hidden");
                 if (passInput.value != passConfirmInput.value && passConfirmInput.value != "") {
-                    passConfirmError.classList.add("show");
-                    setTimeout(() => {
-                        passConfirmError.classList.remove("hidden");
-                    }, 10); 
+                    show(passConfirmError);
                 } else if (passInput.value === passConfirmInput.value) {
-                    passConfirmError.classList.remove("show");
-                    setTimeout(() => {
-                        passConfirmError.classList.add("hidden");
-                    }, 300);
+                    hide(passConfirmError);
                 }
             } else {
                 passConfirmInput.classList.add("password-hidden");
                 passConfirmInput.classList.remove("password-visible");
-                passConfirmError.classList.remove("show");
-                setTimeout(() => {
-                    passConfirmError.classList.add("hidden");
-                }, 300);
+                hide(passConfirmError);
             }
         });
     });
@@ -92,27 +99,17 @@
         nickTimeout = setTimeout(() => {
             const nickInput = this.value;
             const errorMsg = document.getElementById("nick-error");
-            const submitButton = document.getElementById("register-btn");
     
             const isValid = /^[a-zA-Z0-9]{3,18}$/.test(nickInput);
     
             if (nickInput === "") {
-                errorMsg.classList.remove("show");
-                setTimeout(() => {
-                    errorMsg.classList.add("hidden");
-                }, 300);
+                hide(errorMsg);
                 submitButton.disabled = false;
             } else if (!isValid) {
-                errorMsg.classList.add("show");
-                setTimeout(() => {
-                    errorMsg.classList.remove("hidden");
-                }, 10); 
+                show(errorMsg);
                 submitButton.disabled = true;
             } else {
-                errorMsg.classList.remove("show");
-                setTimeout(() => {
-                    errorMsg.classList.add("hidden");
-                }, 300);
+                hide(errorMsg);
                 submitButton.disabled = false;
             }
         }, 500);
@@ -126,28 +123,18 @@
         emailTimeout = setTimeout(() => {
             const emailInput = this.value;
             const errorMsg = document.getElementById("email-error");
-            const submitButton = document.getElementById("register-btn");
 
             const emailPattern = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             const isValid = emailPattern.test(emailInput);
 
             if (emailInput === "") {
-                errorMsg.classList.remove("show");
-                setTimeout(() => {
-                    errorMsg.classList.add("hidden");
-                }, 300);
+                hide(errorMsg);
                 submitButton.disabled = false;
             } else if (!isValid) {
-                errorMsg.classList.add("show");
-                setTimeout(() => {
-                    errorMsg.classList.remove("hidden");
-                }, 10); 
+                show(errorMsg);
                 submitButton.disabled = true;
             } else {
-                errorMsg.classList.remove("show");
-                setTimeout(() => {
-                    errorMsg.classList.add("hidden");
-                }, 300);
+                hide(errorMsg);
                 submitButton.disabled = false;
             }
         }, 500);
@@ -163,20 +150,13 @@ document.getElementById("pass").addEventListener("input", function() {
         const errorMsg = document.getElementById("pass-error");
         const strengthBar = document.querySelector(".password-strength");
         const strengthFill = document.querySelector(".strength-fill");
-        const submitButton = document.getElementById("register-btn");
 
         if (password === "") {
-            strengthBar.classList.remove("show");
-            setTimeout(() => {
-                strengthBar.classList.add("hidden");
-            }, 300);
+            hide(strengthBar);
             strengthBar.style.display = "none";
             errorMsg.style.display = "block";
             strengthFill.style.width = "0";
-            errorMsg.classList.remove("show");
-            setTimeout(() => {
-                errorMsg.classList.add("hidden");
-            }, 300);
+            hide(errorMsg);
             submitButton.disabled = true;
             return;
         }
@@ -247,21 +227,14 @@ document.getElementById("passConfirm").addEventListener("input", function() {
         const passConfirmInput = this.value;
         const password = document.getElementById("pass").value;
         const errorMsg = document.getElementById("passConfirm-error");
-        const submitButton = document.getElementById("register-btn");
 
         const isValid = (password === passConfirmInput);
 
         if (this.classList.contains("password-visible") && !isValid) {
-            errorMsg.classList.add("show");
-            setTimeout(() => {
-                errorMsg.classList.remove("hidden");
-            }, 10); 
+            show(errorMsg);
             submitButton.disabled = false;
         } else {
-            errorMsg.classList.remove("show");
-            setTimeout(() => {
-                errorMsg.classList.add("hidden");
-            }, 300);
+            hide(errorMsg);
         }
     }, 500);
 });
