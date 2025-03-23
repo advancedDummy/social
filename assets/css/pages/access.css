@@ -64,7 +64,7 @@
     border-radius: 3vw;
     cursor: pointer;
     box-shadow: -1px 1px 3px 0px rgba(66, 68, 90, 1), 
-        inset -4px 4px 4px 0px rgba(255, 255, 255, 0.2);
+                inset -4px 4px 4px 0px rgba(255, 255, 255, 0.2);
     transition: all 0.2s ease-in-out;
 }
 

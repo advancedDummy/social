@@ -7,10 +7,11 @@ Prosty serwis społecznościowy z możliwością logowania, rejestracji i odzysk
 
 ## Struktura projektu
     📁 social/
-    ├── 📁 assets/          # Pliki statyczne (obrazy, CSS, JS)
+    ├── 📁 assets/          # Pliki statyczne (obrazy, czcionki, CSS, JS)
     │   ├── 📁 css/         # Style CSS
     │   ├── 📁 js/          # Skrypty JavaScript
     │   ├── 📁 images/      # Obrazy
+    │   ├── 📁 fonts/       # Czcionki, ikony
     │
     ├── 📁 includes/        # Pliki PHP do obsługi backendu
     ├── 📁 templates/       # Szablony HTML/PHP
