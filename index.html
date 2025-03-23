@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/pages/mainpage.css">
     <link rel="stylesheet" href="assets/fonts/fontello/css/fontello.css">
+    <script src="assets/js/header.js"></script>
 </head>
 <body>
     <header class="top-bar">
@@ -32,7 +33,7 @@
         </button>
         <nav class="user-nav" aria-label="Nawigacja konta użytkownika">
             <a href="#" title="Profil użytkownika" class="link-btn">Profil <i class="icon-user"></i></a>
-            <a href="#" title="Wyloguj się" class="link-btn">
+            <a href="#" title="Wyloguj się" class="link-btn logout-btn">
                 Wyloguj się
                 <i class="icon-lock-open-alt"></i>
                 <!--<i class="icon-lock"></i>-->
@@ -44,6 +45,15 @@
             <a href="#" class="link-icon"><i class="icon-mail-alt"></i> Wiadomości</a>
             <a href="#" class="link-icon"><i class="icon-bell-alt"></i> Powiadomienia</a>
         </div>
+        <div id="controls-user-menu" class="controls-user-menu">
+            <input type="search" placeholder="Szukaj..." class="search-box">
+            <a href="#" title="Uruchom tryb ciemny" class="link-icon" id="dark-mode-toggle"><i class="icon-moon"></i> Tryb ciemny</button>
+            <a href="#" class="link-icon"><i class="icon-mail-alt"></i> Wiadomości</a>
+            <a href="#" class="link-icon"><i class="icon-bell-alt"></i> Powiadomienia</a>
+            <a href="#" title="Profil użytkownika" class="link-btn">Profil <i class="icon-user"></i></a>
+            <a href="#" title="Wyloguj się" class="link-btn logout-btn">Wyloguj się <i class="icon-lock-open-alt"></i>
+            </a>
+        </div>
     </header>
     <main>
 
@@ -51,29 +61,4 @@
     <footer>
 
     </footer>
-<script>
-    const controlsToggle = document.getElementById('controls-toggle');
-    const controlsMenu = document.getElementById('controls-menu');
-
-    function closeMenu() {
-        controlsMenu.classList.remove('show');
-    }
-
-    controlsToggle.addEventListener('click', (event) => {
-        event.stopPropagation();
-        controlsMenu.classList.toggle('show');
-    });
-
-    document.addEventListener('click', (event) => {
-        if (!controlsMenu.contains(event.target) && !controlsToggle.contains(event.target)) {
-            closeMenu();
-        }
-    });
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 1150) {
-            closeMenu();
-        }
-    });
-</script>
 </body>
