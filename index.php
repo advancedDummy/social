@@ -1,3 +1,13 @@
+<?php
+require_once "includes/Auth.php";
+
+$auth = new Auth();
+
+if (!$auth->isAuthenticated()) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -33,7 +43,7 @@
         </button>
         <nav class="user-nav" aria-label="Nawigacja konta użytkownika">
             <a href="#" title="Profil użytkownika" class="link-btn">Profil <i class="icon-user"></i></a>
-            <a href="#" title="Wyloguj się" class="link-btn logout-btn">
+            <a href="logout.php" title="Wyloguj się" class="link-btn logout-btn">
                 Wyloguj się
                 <i class="icon-lock-open-alt"></i>
                 <!--<i class="icon-lock"></i>-->
@@ -51,7 +61,7 @@
             <a href="#" class="link-icon"><i class="icon-mail-alt"></i> Wiadomości</a>
             <a href="#" class="link-icon"><i class="icon-bell-alt"></i> Powiadomienia</a>
             <a href="#" title="Profil użytkownika" class="link-btn">Profil <i class="icon-user"></i></a>
-            <a href="#" title="Wyloguj się" class="link-btn logout-btn">Wyloguj się <i class="icon-lock-open-alt"></i>
+            <a href="logout.php" title="Wyloguj się" class="link-btn logout-btn">Wyloguj się <i class="icon-lock-open-alt"></i>
             </a>
         </div>
     </header>

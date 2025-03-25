@@ -1,3 +1,27 @@
+<?php
+require_once "includes/Auth.php";
+
+$auth = new Auth();
+
+if ($auth->isAuthenticated()) {
+    header("Location: index.php");
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = new User();
+
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['new-password'];
+
+    if ($user->register($username, $email, $password)) {
+        header("Location: login.php"); //obsługa pomyślnej rejestracji
+    } else {
+        echo "Nieudana"; //obsługa nieudanej rejestracji
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -41,11 +65,11 @@
                 <button type="submit" class="nunito submit-access" id="register-btn">Zarejestruj się</button>
             </form>
             <p class="bottomLink">
-                <a href="login.html" title="Zaloguj się">Masz już konto? Zaloguj się</a>
+                <a href="login.php" title="Zaloguj się">Masz już konto? Zaloguj się</a>
             </p>
         </main>
         <nav class="switch">
-            <a href="login.html" title="Zaloguj się" class="circular-link">
+            <a href="login.php" title="Zaloguj się" class="circular-link">
                 <img src="assets/images/user_login.png" alt="User icon">
             </a>
         </nav>

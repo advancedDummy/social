@@ -1,9 +1,8 @@
 # Social
-Prosty serwis społecznościowy z możliwością logowania, rejestracji i odzyskiwania hasła.
+Prosty serwis społecznościowy z możliwością logowania i rejestracji.
 
 ## Funkcjonalności
 - Logowanie i rejestracja użytkowników
-- Resetowanie hasła
 
 ## Struktura projektu
     📁 social/
@@ -15,9 +14,11 @@ Prosty serwis społecznościowy z możliwością logowania, rejestracji i odzysk
     │
     ├── 📁 includes/        # Pliki PHP do obsługi backendu
     ├── 📁 templates/       # Szablony HTML/PHP
-    ├── index.html          # Strona główna
-    ├── login.html          # Strona logowania
-    ├── register.html       # Strona rejestracji
+    ├── index.php           # Strona główna
+    ├── login.php           # Strona logowania
+    ├── logout.php          # Skrypt wylogowania
+    ├── register.php        # Strona rejestracji
+    ├── social.sql          # Baza danych 
     ├── LICENSE.txt         # Pełna treść licencji
     ├── README.md           # Dokumentacja projektu
 
@@ -54,14 +55,14 @@ Prosty serwis społecznościowy z możliwością logowania, rejestracji i odzysk
 4. Utwórz bazę danych
     - otwórz `phpMyAdmin` (`http://localhost/phpmyadmin/`)
     - utwórz nową bazę danych o nazwie **social**
-    - zaimportuj plik `database.sql`
+    - zaimportuj plik `social.sql`
 
-5. Skonfiguruj bazę w `config.php`
+5. Skonfiguruj bazę w `Database.php` (w razie potrzeby)
     ```bash
-    define('DB_HOST', 'localhost');
-    define('DB_USER', 'root');  // XAMPP oraz WAMP domyślnie używają "root"
-    define('DB_PASS', '');      // domyślnie puste
-    define('DB_NAME', 'social');
+    $host = "localhost";
+    $db = "social";
+    $user = "root";  // XAMPP oraz WAMP domyślnie używają "root"
+    $pass = "";      // domyślnie puste
 6. Uruchom stronę w przeglądarce
     ```bash
     http://localhost/social/
